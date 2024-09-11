@@ -1,0 +1,129 @@
+1.
+2456 0138
+2.
+3009 5438
+3.
+0351 7612
+4.
+7020 4817
+5.
+3450 9718
+6.
+3196 1679
+7.
+5044 7068
+8.
+6389 2959
+9.
+8301 1830
+10.
+3935 9152
+
+QHYXkHSyZRj1SbbSQTl7
++7 (937) 628-4576
+44EfoSOZ1997
+utyg idaz ewag ux13
+https://oauth.vk.com/blank.html#access_token=vk1.a.cc7fyzt56ENoUiokhFdyjppm6RFIDjXDgKis6lxtORJht6lDCIaIPONQP7cM6HGjv1h6e6Tl-Ir53aW3GbxBJxH4OQN6lKobRJyDPNsWviuttxlHNf5dK5FRdBIT0ptfXJjLDGp-ogAdFd3tFNIw0FBcGZPHcNWvvm2iJEJ-fbFEWzOJ9SweXMaHnNjObj5Z9PjNinUtZ9X2xPZ2azP5fw&expires_in=0&user_id=876062938
+
+
+"""
+    try:
+        vk_session = vk_api.VkApi(token=l_token)
+        vk = vk_session.get_api()
+        print(vk.wall.post(message="Hello world!"))
+    except Exception as exc:
+        print(f"Exception {exc}")
+        if "Captcha" in str(exc):
+            print("Нужен ввод капчи")
+
+    # asyncio.run(bot.send_photo(channel_id, file))
+    # asyncio.run(bot.send_message(channel_id, item['text']))
+"""
+
+poll":{
+"multiple":true
+"end_date":0
+"closed":false
+"is_board":false
+"can_edit":false
+"can_vote":true
+"can_report":true
+"can_share":true
+"created":1723475676
+"id":971575123
+"owner_id":-59411714
+"question":"Смотрим:"
+"votes":8
+"disable_unvote":false
+"anonymous":false
+"friends":[
+0:{
+"id":759205
+}
+1:{
+"id":72872366
+}
+2:{
+"id":179613096
+}
+]
+"answer_ids":[]
+"embed_hash":"971575123_8610eaaab727ce1725"
+"answers":[
+0:{
+"id":2595799442
+"rate":62.5
+"text":"Паровоз / Napoleon (2023)"
+"votes":5
+}
+1:{
+"id":2595799443
+"rate":50
+"text":"Казино / Casino (1995)"
+"votes":4
+}
+2:{
+"id":2595799444
+"rate":87.5
+"text":"Голый пистолет / Naked Gun, The (1988)"
+"votes":7
+}
+3:{
+"id":2595799445
+"rate":37.5
+"text":"Папа-досвидос / That's my boy (2012)"
+"votes":3
+}
+]
+"author_id":-59411714
+"background":{
+"angle":180
+"color":"4b8642"
+"id":2
+"name":"зелёный фон"
+"points":[
+0:{
+"color":"679945"
+"position":0
+}
+1:{
+"color":"2f733f"
+"position":1
+}
+]
+"type":"gradient"
+}
+}
+
+
+async def send(messages: Sequence[Message]):
+    for message in messages:
+        await message.send_to_tg(channel_id)
+
+async def send(messages: Message):
+    for item in reversed(resp['items']):
+        if item['id'] not in posts:
+            posts.append(item['id'])
+            save_to_json(posts, file)
+            # await bot.send_message(channel_id, item['text'])
+            print(item['text'])
