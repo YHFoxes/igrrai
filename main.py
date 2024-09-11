@@ -6,6 +6,9 @@ import sys
 import time
 from typing import Sequence
 
+from telegram import ForceReply, Update
+from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters, CallbackContext
+
 import vk_api
 from telegram import Bot
 from TelegramMessage import Message
@@ -37,6 +40,23 @@ def load_from_json(filename):
         return empty_data
 
 
+async def start(update: Update, context: CallbackContext):
+    await update.message.reply_text('Привет! Я эхо-бот. Напиши мне что-нибудь, и я повторю.')
+
+
+async def echo(update: Update, context: CallbackContext):
+    user_message = update.message.text
+    await update.message.reply_text(user_message)
+
+
+async def main():
+    application = Application.builder().bot(bot).build()
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
+
+    await application.start_polling()
+    await application.idle()
+
 def onExit(test):
     print(test)
 
@@ -48,6 +68,9 @@ async def send(messages: Sequence[Message]):
 
 
 if __name__ == '__main__':
+    asyncio.run(main())
+
+    """
     atexit.register(onExit, posts)
     vk_session = vk_api.VkApi(token=token)
     api = vk_session.get_api()
@@ -69,3 +92,5 @@ if __name__ == '__main__':
 
         asyncio.run(send(messages))
         time.sleep(15)
+    """
+

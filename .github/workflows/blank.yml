@@ -20,7 +20,7 @@ jobs:
 
     - name: Run Python script with environment variables
       run: |
-        python script.py
+        python main.py
       env:
         CHANEL_ID: ${{ secrets.CHANEL_ID }}
         TELEGRAM_GROUP_LINK: ${{ secrets.TELEGRAM_GROUP_LINK }}
