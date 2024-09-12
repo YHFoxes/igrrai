@@ -5,6 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: master
 
     steps:
     - uses: actions/checkout@v2
@@ -26,5 +27,5 @@ jobs:
         VK_DOMAIN: ${{ secrets.VK_DOMAIN }}
         VK_TOKEN: ${{ secrets.VK_TOKEN }}
         IGRRAI_LINK: ${{ env.IGRRAI_LINK }}
-      run: python main.py ${{ secrets.TELEGRAM_TOKEN }}
+      run: python main.py
       
