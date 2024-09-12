@@ -25,6 +25,6 @@ jobs:
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN-igrrai }}
         VK_DOMAIN: ${{ secrets.VK_DOMAIN }}
         VK_TOKEN: ${{ secrets.VK_TOKEN }}
-        IGRRAI_LINK: ${{ secrets.IGRRAI_LINK-igrrai }}
+        IGRRAI_LINK: ${{ vars.IGRRAI_LINK }}
       run: python main.py
       
