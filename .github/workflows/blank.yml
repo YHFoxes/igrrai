@@ -5,6 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: igrrai
 
     steps:
     - uses: actions/checkout@v2
@@ -25,5 +26,6 @@ jobs:
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         VK_DOMAIN: ${{ secrets.VK_DOMAIN }}
         VK_TOKEN: ${{ secrets.VK_TOKEN }}
-        IGRRAI_LINK: IGRRAI_LINK
+        IGRRAI_LINK: ${{ env.IGRRAI_LINK }}
       run: python main.py
+      
