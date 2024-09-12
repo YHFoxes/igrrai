@@ -57,7 +57,7 @@ async def echo(update: Update, context: CallbackContext):
     await update.message.reply_text(user_message)
 
 
-async def main():
+def main():
     application = Application.builder().token(telegram_token).build()
 
     # Добавление обработчиков
