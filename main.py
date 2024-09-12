@@ -62,6 +62,7 @@ async def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
 
+    await application.initialize()
     await application.start()
     await application.idle()
 
