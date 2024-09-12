@@ -19,8 +19,11 @@ channel_id = os.getenv("CHANEL_ID")
 telegram_token = os.getenv("TELEGRAM_TOKEN")
 
 if not telegram_token:
+    keys = ""
     for key in os.environ.keys():
-        raise ValueError(key)
+        keys += f"{key} \r\n"
+
+    raise ValueError(keys)
 
 bot = Bot(telegram_token)
 file = "data.json"
