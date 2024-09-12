@@ -22,9 +22,9 @@ jobs:
       env:
         CHANEL_ID: ${{ secrets.CHANEL_ID }}
         TELEGRAM_GROUP_LINK: ${{ secrets.TELEGRAM_GROUP_LINK }}
-        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN-igrrai }}
         VK_DOMAIN: ${{ secrets.VK_DOMAIN }}
         VK_TOKEN: ${{ secrets.VK_TOKEN }}
-        IGRRAI_LINK: ${{ secrets.IGRRAI_LINK }}
+        IGRRAI_LINK: ${{ secrets.IGRRAI_LINK-igrrai }}
       run: python main.py
       
