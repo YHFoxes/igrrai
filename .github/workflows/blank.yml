@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: master
+    environment: igrrai
 
     steps:
     - uses: actions/checkout@v2
