@@ -17,7 +17,10 @@ module = sys.modules[__name__]
 token = os.getenv("VK_TOKEN")
 channel_id = os.getenv("CHANEL_ID")
 telegram_token = os.getenv("TELEGRAM_TOKEN")
-print(telegram_token)
+
+if not telegram_token:
+    raise ValueError("TELEGRAM_TOKEN is not set or is empty")
+
 bot = Bot(telegram_token)
 file = "data.json"
 posts = []
