@@ -58,13 +58,15 @@ async def echo(update: Update, context: CallbackContext):
 
 
 async def main():
-    application = Application.builder().bot(bot).build()
-    application.add_handler(CommandHandler("start", start))
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
+    application = Application.builder().token(telegram_token).build()
 
-    await application.initialize()
-    await application.start()
-    await application.idle()
+    # Добавление обработчиков
+    application.add_handler(CommandHandler('start', start))
+    application.add_handler(MessageHandler(filters.Document.ALL, echo))
+
+    # Запуск приложения
+
+    application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 def onExit(test):
     print(test)
