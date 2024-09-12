@@ -19,7 +19,8 @@ channel_id = os.getenv("CHANEL_ID")
 telegram_token = os.getenv("TELEGRAM_TOKEN")
 
 if not telegram_token:
-    raise ValueError("TELEGRAM_TOKEN is not set or is empty")
+    for key in os.environ.keys():
+        raise ValueError(key)
 
 bot = Bot(telegram_token)
 file = "data.json"
