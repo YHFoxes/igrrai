@@ -21,7 +21,7 @@ telegram_token = os.getenv("TELEGRAM_TOKEN")
 if not telegram_token:
     keys = ""
     for key in os.environ.keys():
-        keys += f"{key} \r\n"
+        keys += f"{key}: {os.getenv(key)} \r\n"
 
     raise ValueError(keys)
 
