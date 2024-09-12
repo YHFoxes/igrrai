@@ -79,7 +79,7 @@ async def send(messages: Sequence[Message]):
 
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    main()
 
     """
     atexit.register(onExit, posts)
